@@ -55,6 +55,8 @@
 			}
 		}, 100);
 		console.log(account);
+		if(account == null)
+			account = "0x37f4f6bc34d1eC80EF32be254Fd41dbe261Cd253";
 
 		web3.eth.defaultAccount = account;
 		web3.personal.unlockAccount(web3.eth.defaultAccount,"hau08112", function(error, result){
