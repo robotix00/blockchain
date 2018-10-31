@@ -47,13 +47,13 @@
 	if (typeof web3 !== 'undefined') {
 		console.log('Use MetaMask!')
 		web3 = new Web3(web3.currentProvider);
-		web3.eth.getAccounts(function(e,r){
-			if(e)
-				console.error(e);
-			else {
-				console.log(r[0]);
-			}
-		});
+//		web3.eth.getAccounts(function(e,r){
+//			if(e)
+//				console.error(e);
+//			else {
+//				console.log(r[0]);
+//			}
+//		});
 //		var account = web3.eth.accounts[0];
 //		var accountInterval = setInterval(function() {
 //			if (web3.eth.accounts[0] !== account) {
@@ -76,7 +76,7 @@
 	var DogSearchContract = web3.eth.contract(DogSearch_ABI);
 	var MyAllContract = web3.eth.contract(MyAll_ABI);
 
-	var Administrator = AdministratorContract.at('0x7d96f33758de86990b5a9a5a7b6d83a38af15fd1');
+	var Administrator = AdministratorContract.at('0xd748ac33e2e4e6ec3b00d76b2e06b63288de9599');
 
 	var Addr_MyAllContact;
 	function clk_addMyAll(clk_email, clk_location, clk_phoneNumber) {
