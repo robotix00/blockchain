@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+<!--    <script src="./node_modules/web3/dist/web3.min.js"></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+        <h1>My All Test</h1>
+
+<!--        <h2 id="instructor"></h2>-->
+
+        <h1>Join</h1>
+        <label for="input_email">Email</label>
+        <input id="input_email" type="text">
+
+        <label for="input_location">Location</label>
+        <input id="input_location" type="text">
+
+        <label for="input_phoneNumber">Phone Number</label>
+        <input id="input_phoneNumber" type="text">
+
+	<button type="button" onclick="clk_addMyAll(document.getElementById('input_email').value, document.getElementById('input_location').value, document.getElementById('input_phoneNumber').value)">Join</button>
+
+	<button type="button" onclick="myAllsCount()">myAllsCount</button>
+    Get data: <span id="output_myAllsCount"></span>
+	<button type="button" onclick="myAllsList()">myAllsList</button>
+    Get data: <span id="output_myAllsList"></span>
+
+	</div>
+
+	<script src="./Administrator_Contract.js"></script>
+	<script src="./CompanionAnimal_Contract.js"></script>
+	<script src="./DogSearch_Contract.js"></script>
+	<script src="./MyAll_Contract.js"></script>
+	<script>
+
+        if (typeof web3 !== 'undefined') {
+		console.log('Use MetaMask!')
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+	    console.log('No web3? You should consider trying MetaMask!')
+            web3 = new Web3(new Web3.providers.HttpProvider("http://192.168.100.166:8545"));
+        }
+
+	web3.eth.defaultAccount = web3.eth.accounts[2];
+	web3.personal.unlockAccount(web3.eth.defaultAccount,"test3")
+//	console.log(web3.eth.defaultAccount);
+
+	var AdministratorContract = web3.eth.contract(Administrator_ABI);
+	var CompationAnimalContract = web3.eth.contract(CompanionAnimal_ABI);
+	var DogSearchContract = web3.eth.contract(DogSearch_ABI);
+	var MyAllContract = web3.eth.contract(MyAll_ABI);
+
+	var Administrator = AdministratorContract.at('0x7d96f33758de86990b5a9a5a7b6d83a38af15fd1');
+
+	var Addr_MyAllContact;
+	function clk_addMyAll(clk_email, clk_location, clk_phoneNumber) {
+		Addr_MyAllContact = addMyAll(clk_email, clk_location, clk_phoneNumber);
+		console.log(Addr_MyAllContact);
+	}
+
+    </script>
+
+</body>
+</html>
