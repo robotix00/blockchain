@@ -55,7 +55,7 @@
 
 	web3.eth.defaultAccount = web3.eth.accounts[0];
 	web3.personal.unlockAccount(web3.eth.defaultAccount,"hau08112")
-//	console.log(web3.eth.defaultAccount);
+	console.log(web3.eth.defaultAccount);
 
 	var AdministratorContract = web3.eth.contract(Administrator_ABI);
 	var CompationAnimalContract = web3.eth.contract(CompanionAnimal_ABI);
