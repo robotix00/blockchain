@@ -180,7 +180,6 @@ var Administrator_ABI =
 function addMyAll(email, location, phoneNumber){
 	var ret;
 	Administrator.addMyAll(email, location, phoneNumber, function(error,result){
-		Addr_MyAllContact = result;
 		ret = result;
 		if (error)
 			console.error(error);
