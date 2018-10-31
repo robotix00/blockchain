@@ -80,8 +80,14 @@
 
 	var Addr_MyAllContact;
 	function clk_addMyAll(clk_email, clk_location, clk_phoneNumber) {
-		Addr_MyAllContact = addMyAll(clk_email, clk_location, clk_phoneNumber);
-		console.log(Addr_MyAllContact);
+		addMyAll(clk_email, clk_location, clk_phoneNumber, function(e,r){
+			if(e)
+				console.error(e);
+			else {
+				Addr_MyAllContact = r;
+				console.log(Addr_MyAllContact);
+			}
+		});
 	}
 
 	</script>
